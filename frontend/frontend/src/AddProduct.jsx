@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-posturl : "http://localhost:5101/api/users/productpost"
+const posturl = "http://localhost:5101/api/users/productpost"
 
 const AddProduct = () => {
     const [name, setName] = useState(" ")
@@ -13,7 +13,7 @@ const AddProduct = () => {
         const prodData = await fetch(posturl, {
           method: "POST",
           headers: {
-            "Content-Type": "applications.json"
+            "Content-Type": "application/json"
           },
           body: JSON.stringify({
             name, description, price
@@ -27,13 +27,13 @@ const AddProduct = () => {
     }
   return (
     <div>
-      <form onSubmit={productHandler}>
+      <form onSubmit={productHandler} className="form-data">
         <h3>Name: </h3>
         <input type="text" value={name} onChange={(e) => setName(e.target.value)} />
         <h3>Description: </h3>
         <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
         <h3>Price: </h3>
-        <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} />
+        <input type="text" value={price} onChange={(e) => setPrice(e.target.value)} /> <br/><br/>
         <button type='submit'>Submit</button>
       </form>
     </div>
