@@ -1,6 +1,6 @@
-const mongoose = requinre("mongoose")
+const mongoose = require("mongoose")
 
-const productSchema = new mongoose.Schewma({
+const productSchema = new mongoose.Schema({
     name: {
         type: String
     },
