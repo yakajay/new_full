@@ -1,6 +1,7 @@
 const express = require("express")
 const app = express()
 const router = require("./Routes/userRoutes")
+const authRoutes = require("./Routes/AuthRoutes")
 const mongoose = require("mongoose")
 const dotenv = require("dotenv")
 const cors = require("cors")
@@ -18,6 +19,7 @@ mongoose.connect(process.env.dburl)
 })
 
 app.use("/api/users", router)
+app.use("/auth", authRoutes)
 
 app.listen("5101", () => {
     console.log("Running on 5101");
