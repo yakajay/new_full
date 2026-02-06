@@ -3,7 +3,7 @@ const dotenv = require("dotenv")
 
 dotenv.config()
 
-const authMiddleWare = (req, res, next) => {
+exports.authMiddleWare = (req, res, next) => {
     try {
         const headersData = req.headers.authorization
         if(!headersData) {
